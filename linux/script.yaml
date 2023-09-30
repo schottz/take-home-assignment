@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: assignment
+  labels:
+    app: goapp
+  name: goapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: goapp
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: goapp
+    spec:
+      initContainers: 
+      - name: init-sleep
+        image: busybox
+        command: ["sleep", "30"]
+      containers:
+      - image: MY_NEW_IMAGE
+        name: dockerize
+        ports:
+        - containerPort: 8080
+        resources: {}
+        readinessProbe:  
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe: 
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 20
+        lifecycle:  
+          preStop:
+            exec:
+              command:
+                - sh
+                - -c
+                - echo "bye, I'm stopping..."
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: goapp
+  name: goapp
+  namespace: assignment
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: goapp
+status:
+  loadBalancer: {}
