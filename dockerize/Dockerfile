@@ -4,7 +4,7 @@ WORKDIR /opt/app/
 
 COPY . .
 
-RUN echo "root@tcp(database.default.svc.cluster.local:3306)/go" > server.confi
+RUN echo "root@tcp(database.default.svc.cluster.local:3306)/blog" > server.confi
 
 RUN go mod init dockerize && \
     go get github.com/go-sql-driver/mysql && \ 
