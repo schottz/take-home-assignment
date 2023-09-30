@@ -1,0 +1,9 @@
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate.backup
+terraform/.terraform/providers/registry.terraform.io/gavinbunney/kubectl/1.14.0/darwin_arm64/LICENSE
+terraform/.terraform/providers/registry.terraform.io/gavinbunney/kubectl/1.14.0/darwin_arm64/terraform-provider-kubectl_v1.14.0
+terraform/.terraform/providers/registry.terraform.io/hashicorp/helm/2.11.0/darwin_arm64/terraform-provider-helm_v2.11.0_x5
+terraform/.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.23.0/darwin_arm64/terraform-provider-kubernetes_v2.23.0_x5
+terraform/.terraform/providers/registry.terraform.io/hashicorp/local/2.4.0/darwin_arm64/terraform-provider-local_v2.4.0_x5
+terraform/.terraform/providers/registry.terraform.io/gavinbunney/kubectl/1.14.0/darwin_arm64/README.md
+.terraform/
